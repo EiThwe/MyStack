@@ -173,8 +173,10 @@ namespace ArrayStackDemo
         {
             int target;
             int index;
+            int subNum;
+            string? input;
 
-         
+
             do
             {
                 Console.WriteLine("\nEnter a number to search for.");
@@ -207,8 +209,13 @@ namespace ArrayStackDemo
                 stack.Pop(); // remove items above the target
             }
 
-            Console.Write("\nEnter a number to substitute: ");
-            int subNum = int.Parse(Console.ReadLine() ?? "0");
+            //Ask a number to substitute and validate
+            do
+            {
+                Console.Write("\nEnter a number to substitute: ");
+                input = Console.ReadLine();
+            }
+            while (!int.TryParse(input, out subNum));
 
             stack.Pop();         
             stack.Push(subNum);  
